@@ -3,123 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShadowKing Mobile - شحن Shadow Coins</title>
+<title>ShadowKing Mobile - الموقع الرسمي</title>
 <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma}
-    body{
-        background: linear-gradient(135deg, #0a0a0a 0%, #1a001a 50%, #2a0000 100%);
-        color:#fff; min-height:100vh;
-    }
-    header{
-        text-align:center; padding:30px 20px;
-        background: rgba(0,0,0,0.6); border-bottom: 2px solid #8b00ff;
-    }
-    header h1{font-size:2.5em; color:#ff00ff; text-shadow:0 0 15px #8b00ff}
-    header p{color:#ccc; margin-top:10px}
+    body{background: linear-gradient(135deg, #0a0a0a 0%, #1a001a 50%, #2a0000 100%); color:#fff; min-height:100vh;}
     
-    .container{max-width:1100px; margin:40px auto; padding:20px}
+    nav{background: rgba(0,0,0,0.95); padding:15px; border-bottom:2px solid #8b00ff; position:sticky; top:0; z-index:999}
+    nav .logo{font-size:1.5em; color:#ff00ff; font-weight:bold; text-align:center}
+    nav ul{list-style:none; display:flex; justify-content:center; gap:20px; margin-top:10px; flex-wrap:wrap}
+    nav ul li a{color:#fff; text-decoration:none; transition:0.3s}
+    nav ul li a:hover{color:#ff00ff; text-shadow:0 0 10px #ff00ff}
     
-    .input-box{
-        background: rgba(20,20,20,0.8); padding:25px; border-radius:15px;
-        border:1px solid #8b00ff; margin-bottom:30px; text-align:center
-    }
-    .input-box input{
-        width:70%; padding:15px; border-radius:10px; border:2px solid #8b00ff;
-        background:#111; color:#fff; font-size:16px; outline:none
-    }
-    .input-box button{
-        padding:15px 30px; margin-right:10px; border:none; border-radius:10px;
-        background: linear-gradient(90deg,#8b00ff,#ff0033); color:#fff;
-        font-weight:bold; cursor:pointer; transition:0.3s
-    }
-    .input-box button:hover{transform:scale(1.05); box-shadow:0 0 20px #ff00ff}
+    header{text-align:center; padding:50px 20px; background: url('https://i.imgur.com/xyz.jpg') center/cover}
+    header h1{font-size:3em; color:#ff00ff; text-shadow:0 0 20px #8b00ff; animation:glow 2s infinite}
+    @keyframes glow{0%,100%{text-shadow:0 0 20px #8b00ff} 50%{text-shadow:0 0 40px #ff00ff}}
+    
+    .container{max-width:1200px; margin:20px auto; padding:20px}
+    .section-title{text-align:center; font-size:2em; color:#ff00ff; margin:40px 0}
+    
+    /* الاحداث الجديدة */
+    .event-card{background: linear-gradient(135deg, #8b00ff, #ff0033); padding:20px; border-radius:15px; margin:15px 0; text-align:center}
+    .countdown{font-size:2em; color:#fff; font-weight:bold; margin-top:10px}
+    
+    .input-box{background: rgba(20,20,20,0.8); padding:25px; border-radius:15px; border:1px solid #8b00ff; margin-bottom:30px; text-align:center}
+    .input-box input{width:70%; padding:15px; border-radius:10px; border:2px solid #8b00ff; background:#111; color:#fff}
+    .input-box button{padding:15px 30px; border:none; border-radius:10px; background: linear-gradient(90deg,#8b00ff,#ff0033); color:#fff; font-weight:bold; cursor:pointer}
     
     .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px}
-    
-    .card{
-        background: rgba(20,20,20,0.9); border:2px solid #333; border-radius:15px;
-        padding:25px; text-align:center; transition:0.3s; cursor:pointer
-    }
+    .card{background: rgba(20,20,20,0.9); border:2px solid #333; border-radius:15px; padding:25px; text-align:center; transition:0.3s}
     .card:hover{border-color:#ff00ff; transform:translateY(-10px); box-shadow:0 0 30px #8b00ff}
-    .card h3{color:#ff00ff; font-size:1.5em; margin-bottom:10px}
-    .card .coins{font-size:2em; color:#fff; font-weight:bold}
-    .card .price{color:#00ff88; font-size:1.3em; margin:15px 0}
-    .card button{
-        width:100%; padding:12px; border:none; border-radius:10px;
-        background: linear-gradient(90deg,#ff0033,#8b00ff); color:#fff;
-        font-weight:bold; font-size:16px; cursor:pointer
-    }
+    .card h3{color:#ff00ff} .card .coins{font-size:2em} .card .price{color:#00ff88; font-size:1.3em; margin:15px 0}
+    .card button{width:100%; padding:12px; border:none; border-radius:10px; background: linear-gradient(90deg,#ff0033,#8b00ff); color:#fff; font-weight:bold; cursor:pointer}
     
-    footer{text-align:center; padding:20px; color:#666; margin-top:50px}
+    .store{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px}
+    .item{background: rgba(30,30,30,0.9); border:1px solid #555; border-radius:10px; padding:15px; text-align:center}
+    .item img{width:100%; height:120px; background:linear-gradient(45deg,#8b00ff,#ff0033); border-radius:8px; margin-bottom:10px}
+    .item .item-price{color:#00ff88; font-weight:bold}
+    
+    footer{text-align:center; padding:20px; color:#666; margin-top:50px; border-top:1px solid #333}
 </style>
 </head>
 <body>
 
+<nav>
+    <div class="logo">SHADOWKING MOBILE</div>
+    <ul>
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#recharge">الشحن</a></li>
+        <li><a href="#store">المتجر</a></li>
+        <li><a href="#events">الاحداث</a></li>
+    </ul>
+</nav>
+
 <header>
     <h1>SHADOWKING MOBILE</h1>
-    <p>اشحن Shadow Coins واحصل على افضل العروض</p>
+    <p>اشحن Shadow Coins واحصل على افضل الاسكنات</p>
 </header>
 
 <div class="container">
+    <!-- قسم الاحداث الجديد -->
+    <h2 class="section-title" id="events">الاحداث القادمة</h2>
+    <div class="event-card">
+        <h3>حدث Draven Isle</h3>
+        <p>اكمل 5 مهمات واحصل على 200 Shadow Coin مجاني</p>
+        <div class="countdown" id="timer">03:12:45:10</div>
+    </div>
+
+    <!-- قسم الشحن -->
+    <h2 class="section-title" id="recharge">شحن Shadow Coins</h2>
     <div class="input-box">
-        <h2>ادخل ID اللاعب</h2>
+        <h3>ادخل ID اللاعب</h3>
         <input type="text" id="playerID" placeholder="مثال: 123456789">
         <button onclick="checkID()">تأكيد</button>
     </div>
 
-    <div class="packages" id="packages" style="display:none;">
-        <div class="card">
-            <h3>باقة مبتدئ</h3>
-            <div class="coins">60 Shadow Coin</div>
-            <div class="price">1.00 $</div>
-            <button onclick="buy(60,1)">اشحن الان</button>
-        </div>
-        <div class="card">
-            <h3>باقة محارب</h3>
-            <div class="coins">325 Shadow Coin</div>
-            <div class="price">5.00 $</div>
-            <button onclick="buy(325,5)">اشحن الان</button>
-        </div>
-        <div class="card">
-            <h3>باقة نخبة</h3>
-            <div class="coins">660 Shadow Coin</div>
-            <div class="price">10.00 $</div>
-            <button onclick="buy(660,10)">اشحن الان</button>
-        </div>
-        <div class="card">
-            <h3>باقة ملك</h3>
-            <div class="coins">1800 Shadow Coin + 200 بونص</div>
-            <div class="price">20.00 $</div>
-            <button onclick="buy(2000,20)">اشحن الان</button>
-        </div>
+    <div class="packages">
+        <div class="card"><h3>باقة مبتدئ</h3><div class="coins">60 Coin</div><div class="price">$ 1.00</div><button onclick="buy(60,1)">اشحن الان</button></div>
+        <div class="card"><h3>باقة محارب</h3><div class="coins">325 Coin</div><div class="price">$ 5.00</div><button onclick="buy(325,5)">اشحن الان</button></div>
+        <div class="card"><h3>باقة نخبة</h3><div class="coins">660 Coin</div><div class="price">$ 10.00</div><button onclick="buy(660,10)">اشحن الان</button></div>
+        <div class="card"><h3>باقة ملك</h3><div class="coins">2000 Coin</div><div class="price">$ 20.00</div><button onclick="buy(2000,20)">اشحن الان</button></div>
+    </div>
+
+    <!-- قسم المتجر -->
+    <h2 class="section-title" id="store">متجر الاسكنات</h2>
+    <div class="store">
+        <div class="item"><img><h4>سكن Shadow Dragon</h4><div class="item-price">500 Coin</div><button onclick="alert('اشتري كوينز اول')">شراء</button></div>
+        <div class="item"><img><h4>سكن Nyraka Warrior</h4><div class="item-price">800 Coin</div><button onclick="alert('اشتري كوينز اول')">شراء</button></div>
+        <div class="item"><img><h4>صندوق Draven</h4><div class="item-price">200 Coin</div><button onclick="alert('اشتري كوينز اول')">شراء</button></div>
+        <div class="item"><img><h4>رقصة Shadow Dance</h4><div class="item-price">300 Coin</div><button onclick="alert('اشتري كوينز اول')">شراء</button></div>
     </div>
 </div>
 
-<footer>
-    © 2026 ShadowKing Mobile. جميع الحقوق محفوظة
-</footer>
+<footer>© 2026 ShadowKing Mobile. جميع الحقوق محفوظة</footer>
 
 <script>
     function checkID(){
         let id = document.getElementById('playerID').value;
-        if(id.length < 5){
-            alert('الرجاء ادخال ID صحيح');
-            return;
-        }
-        document.getElementById('packages').style.display = 'grid';
+        if(id.length < 5){ alert('الرجاء ادخال ID صحيح'); return; }
         alert('تم العثور على الحساب: ' + id);
     }
-
     function buy(coins, price){
         let id = document.getElementById('playerID').value;
-        if(id.length < 5){
-            alert('ادخل ID اول');
-            return;
-        }
+        if(id.length < 5){ alert('ادخل ID اول'); return; }
         alert('جاري التحويل لصفحة الدفع\n' + coins + ' Shadow Coin بسعر ' + price + '$');
-        // هون بتحط رابط بوابة الدفع تبعك Paypal او PayTabs
-        // window.location.href = "رابط_الدفع?coins=" + coins + "&id=" + id;
     }
+    
+    // عداد تنازلي للحدث
+    function countdown(){
+        document.getElementById('timer').innerHTML = "03:12:45:10";
+    }
+    countdown();
 </script>
 
 </body>

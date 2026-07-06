@@ -5,25 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShadowKing Mobile - الموقع الرسمي</title>
 <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma; scroll-behavior:smooth}
     body{background: linear-gradient(135deg, #0a0a0a 0%, #1a001a 50%, #2a0000 100%); color:#fff; min-height:100vh;}
     
     nav{background: rgba(0,0,0,0.95); padding:15px; border-bottom:2px solid #8b00ff; position:sticky; top:0; z-index:999}
     nav .logo{font-size:1.5em; color:#ff00ff; font-weight:bold; text-align:center}
-    nav ul{list-style:none; display:flex; justify-content:center; gap:20px; margin-top:10px; flex-wrap:wrap}
-    nav ul li a{color:#fff; text-decoration:none; transition:0.3s}
+    nav ul{list-style:none; display:flex; justify-content:center; gap:15px; margin-top:10px; flex-wrap:wrap}
+    nav ul li a{color:#fff; text-decoration:none; transition:0.3s; font-size:15px}
     nav ul li a:hover{color:#ff00ff; text-shadow:0 0 10px #ff00ff}
     
-    header{text-align:center; padding:50px 20px; background: url('https://i.imgur.com/xyz.jpg') center/cover}
+    header{text-align:center; padding:50px 20px;}
     header h1{font-size:3em; color:#ff00ff; text-shadow:0 0 20px #8b00ff; animation:glow 2s infinite}
     @keyframes glow{0%,100%{text-shadow:0 0 20px #8b00ff} 50%{text-shadow:0 0 40px #ff00ff}}
     
     .container{max-width:1200px; margin:20px auto; padding:20px}
     .section-title{text-align:center; font-size:2em; color:#ff00ff; margin:40px 0}
     
-    /* الاحداث الجديدة */
-    .event-card{background: linear-gradient(135deg, #8b00ff, #ff0033); padding:20px; border-radius:15px; margin:15px 0; text-align:center}
-    .countdown{font-size:2em; color:#fff; font-weight:bold; margin-top:10px}
+    /* واجهة الاحداث */
+    .event-card{background: linear-gradient(135deg, #8b00ff, #ff0033); padding:25px; border-radius:15px; margin:15px 0; text-align:center; border:2px solid #ff00ff}
+    .event-card h3{font-size:1.8em; margin-bottom:10px}
+    .countdown{font-size:2em; color:#fff; font-weight:bold; margin-top:10px; background:rgba(0,0,0,0.5); padding:10px; border-radius:10px}
+    
+    /* واجهة تسجيل الدخول */
+    .login-box{background: rgba(20,20,20,0.9); padding:30px; border-radius:15px; border:2px solid #8b00ff; max-width:400px; margin:0 auto; text-align:center}
+    .login-box input{width:100%; padding:15px; margin:10px 0; border-radius:10px; border:2px solid #8b00ff; background:#111; color:#fff; font-size:16px}
+    .login-box button{width:100%; padding:15px; border:none; border-radius:10px; background: linear-gradient(90deg,#8b00ff,#ff0033); color:#fff; font-weight:bold; font-size:18px; cursor:pointer; margin-top:10px}
     
     .input-box{background: rgba(20,20,20,0.8); padding:25px; border-radius:15px; border:1px solid #8b00ff; margin-bottom:30px; text-align:center}
     .input-box input{width:70%; padding:15px; border-radius:10px; border:2px solid #8b00ff; background:#111; color:#fff}
@@ -52,6 +58,7 @@
         <li><a href="#recharge">الشحن</a></li>
         <li><a href="#store">المتجر</a></li>
         <li><a href="#events">الاحداث</a></li>
+        <li><a href="#login">تسجيل الدخول</a></li>
     </ul>
 </nav>
 
@@ -61,12 +68,28 @@
 </header>
 
 <div class="container">
-    <!-- قسم الاحداث الجديد -->
+    
+    <!-- واجهة الاحداث الجديدة -->
     <h2 class="section-title" id="events">الاحداث القادمة</h2>
     <div class="event-card">
         <h3>حدث Draven Isle</h3>
         <p>اكمل 5 مهمات واحصل على 200 Shadow Coin مجاني</p>
-        <div class="countdown" id="timer">03:12:45:10</div>
+        <div class="countdown">03:12:45:10</div>
+    </div>
+    <div class="event-card">
+        <h3>حدث Shadow Pass</h3>
+        <p>اشتري الـ Pass واحصل على سكنات حصرية</p>
+        <div class="countdown">07:05:20:00</div>
+    </div>
+
+    <!-- واجهة تسجيل الدخول الجديدة -->
+    <h2 class="section-title" id="login">تسجيل الدخول</h2>
+    <div class="login-box">
+        <h3>سجل دخولك بحساب ShadowKing</h3>
+        <input type="text" placeholder="اسم المستخدم او الايميل">
+        <input type="password" placeholder="كلمة المرور">
+        <button onclick="alert('قريبا: ربط مع سيرفر اللعبة')">دخول</button>
+        <p style="margin-top:15px; color:#aaa">ليس لديك حساب؟ <a href="#" style="color:#ff00ff">انشاء حساب</a></p>
     </div>
 
     <!-- قسم الشحن -->
@@ -107,12 +130,6 @@
         if(id.length < 5){ alert('ادخل ID اول'); return; }
         alert('جاري التحويل لصفحة الدفع\n' + coins + ' Shadow Coin بسعر ' + price + '$');
     }
-    
-    // عداد تنازلي للحدث
-    function countdown(){
-        document.getElementById('timer').innerHTML = "03:12:45:10";
-    }
-    countdown();
 </script>
 
 </body>
